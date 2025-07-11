@@ -150,7 +150,8 @@ if (str4.trim() === '') {
     document.getElementById('imgT').src=reader.result;
     };
     //code  for  not displaying form after generating resume
-
+    document.querySelector("header").style.display = "none";
+    document.querySelector("footer").style.display = "none";
     document.getElementById('resume-form').style.display='none';
     document.getElementById('resume-template').style.display='block';
 
