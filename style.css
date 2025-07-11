@@ -1,0 +1,177 @@
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background:  rgb(146, 254, 157);
+  color: #222;
+  padding: 20px 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.sticky-header p.lead {
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-top: 5px;
+  margin-bottom: 0;
+  color: black;
+  font-weight: 600;
+}
+
+.sticky-header h1 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+header {
+  z-index: 1000;
+}
+
+.sticky-top {
+  position: sticky;
+  top: 0;
+}
+
+#resume-form{
+    background-color:rgba(127, 255, 212, 0.4); 
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+}
+#resume-form h3 {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+
+
+.resume-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color:rgb(211,211,211);
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}
+#resume-template{
+    
+    background-color: white;
+    display:none;
+    padding: 30px 15px;
+}
+#resume-template a {
+    word-break: break-all;
+    display: inline-block;
+}
+
+.myimg{
+  
+    border-radius:50%;
+    width: 200px;
+    height: 200px; 
+    object-fit: cover;
+    
+    
+}
+span{
+    color: red;
+    font-weight:  800;;
+}
+.background{
+    background-color:aquamarine ;
+}
+.header{
+    
+    background-color:#bbf7d0;
+}
+
+/* printing style */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  #resume-template {
+    display: block;
+    width: 100%;
+    transform: scale(0.9); /* shrink to fit A4 */
+    transform-origin: top center;
+  }
+
+  .resume-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    box-shadow: none;
+    background: white;
+    padding: 0;
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row !important;
+    flex-wrap: nowrap;
+    margin: 0 !important;
+    width: 100%;
+  }
+
+  .col-md-4 {
+    width: 30% !important;
+    max-width: 30%;
+    padding: 15px !important;
+    background-color: aquamarine !important;
+  }
+
+  .col-md-8 {
+    width: 70% !important;
+    max-width: 70%;
+    padding: 15px !important;
+    background-color: white !important;
+  }
+
+  .card,
+  .card-body,
+  .card-header {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  h1, h3 {
+    page-break-after: avoid;
+  }
+
+  .myimg {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide form and buttons */
+  #resume-form,
+  .btn,
+  #skillsAddButton,
+  #weAddButton,
+  #eduAddButton,
+  #projectsAddButton {
+    display: none !important;
+  }
+}
+

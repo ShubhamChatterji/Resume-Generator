@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Resume Generator</title>
+    <link rel="icon" type="image/x-icon" href="images\resume.ico">
+
+</head>
+
+<body>
+    <!-- Sticky Header -->
+<header class="sticky-header">
+  <h1><span>R</span>esume <span>G</span>enerator</h1>
+  <p class="lead">Create your resume easily and beautifully</p>
+</header>
+
+
+
+    <div class="container" id="resume-form">
+        <!-- <h1 class="text-center mt-3 fw-bold"><span >R</span>esume <span>G</span>enerator</h1>
+        <p class="text-center fs-4 fst-italic ">create your resume easily</p> -->
+        <div class="row">
+            <!-- first column -->
+            <div class="col-md-6">
+                <h3><b>Personal Information</b></h1>
+                    <div class="form-group mt-2">
+                        <label for="nameField"><b>Name</b></label>
+                        <input type="text" id="nameField" placeholder="Enter here" class="form-control">
+                    </div>
+                    <div class="form-group mt-2">
+                        <label for="contactField"><b>Contact</b></label>
+                        <input type="text" id="contactField" placeholder="Enter here" class="form-control">
+                    </div>
+                    <div class="form-group mt-2">
+                        <label for="emailField"><b>Email</b></label>
+                        <input type="text" id="emailField" placeholder="Enter here" class="form-control">
+                    </div>
+                    <div class="form-group mt-2">
+                        <label for="addressField"><b>Address</b></label>
+                        <textarea rows="5" id="addressField" placeholder="Enter here" class="form-control"></textarea>
+                    </div>
+                    <!-- image uploading ke liye -->
+                    <div class="form-group mt-2">
+                        <label for="Select Photo"></label>
+                        <input id="imgField" type="file" class="form-control" />
+                    </div>
+                    <!-- imprtant links -->
+                    <p class="text-secondary mt-2">Important links</p>
+                    <div class="form-group mt-2">
+                        <label for="linkedinField"><b>Linkedin</b></label>
+                        <input type="text" id="linkedinField" placeholder="Enter here" class="form-control">
+                    </div>
+                    <div class="form-group mt-2">
+                        <label for="githubField"><b>github</b></label>
+                        <input type="text" id="githubField" placeholder="Enter here" class="form-control">
+                    </div>
+
+
+            </div>
+            <!-- second column -->
+            <div class="col-md-6">
+                <h3><b>Professional Information</b></h1>
+                    <div class="form-group mt-2">
+                        <label for=""><b>Summary</b></label>
+                        <textarea id="summaryField" rows="5" placeholder="Enter here" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group mt-2" id="sk">
+                        <label for=""><b>Skills</b></label>
+                        <textarea rows="1" placeholder="Enter here" class="form-control skField"></textarea>
+                        <!-- new text area added dynamically -->
+                        <div class="container text-center mt-1" id="skillsAddButton">
+                            <button onclick="addNewSkillsField()" class="btn btn-primary btn-sm">Add</button>
+                        </div>
+                    </div>
+                    <div class="form-group mt-2" id="we">
+                        <label for=""><b>Work Experience/Internships</b></label>
+                        <textarea rows="3" placeholder="Enter here" class="form-control weField"></textarea>
+                        <!-- new text area added dynamically -->
+                        <div class="container text-center mt-1" id="weAddButton">
+                            <button onclick="addNewWEField()" class="btn btn-primary btn-sm">Add</button>
+                        </div>
+                    </div>
+                    <div class="form-group mt-2" id="edu">
+                        <label for=""><b>Education</b></label>
+                        <textarea rows="3" placeholder="Enter here" class="form-control eduField"></textarea>
+                        <!-- new text area added dynamically -->
+                        <div class="container text-center mt-1" id="eduAddButton">
+                            <button onclick="addEduField()" class="btn btn-primary btn-sm">Add</button>
+                        </div>
+                    </div>
+                    <div class="form-group mt-2" id="proj">
+                        <label for=""><b>Projects</b></label>
+                        <textarea row="2" placeholder="Enter here" class="form-control projectsField"></textarea>
+                        <!-- new text area added dynamically -->
+                        <div class="container text-center mt-1" id="projectsAddButton">
+                            <button onclick="addProjField()" class="btn btn-primary btn-sm">Add</button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="container text-center mt-3">
+            <button onclick="generateResume()" class=" btn btn-primary btn-lg ">Generate Resume</button>
+        </div>
+        <br>
+    </div>
+
+
+
+    <!-- resume template -->
+    <div class="container-fluid my-5" id="resume-template">
+        <div class="resume-wrapper">
+            <div class="row">
+                <!-- first column -->
+                <div class="col-md-4 text-center py-5 background">
+                    <img src="images\defaultimage.jpeg" alt="" id="imgT" class="img-fluid myimg" />
+                    <div class="container ">
+                        <p id="nameT1">Shubham Chatterjee</p>
+                        <p id="contactT">+9195564245</p>
+                        <p id="emailT">shhbdsb637@gmail.com</p>
+                        <p id="addressT">sec-5 bokaro steel-8524</p>
+                        <hr />
+                        <p><a id="linkedinT" href="#1">https://www.linkedin.com/shubham</a></p>
+                        <p><a id="githubT" href="#2">https://www.github.com/shubham</a></p>
+
+                    </div>
+                </div>
+                <!-- second column -->
+                <div class="col-md-8 py-5">
+                    <h1 id="nameT2" class="text-center" style="font-weight:980">Shubham Chatterjee</h1>
+                    <!-- objective card -->
+                    <div class="card mt-4">
+                        <div class="card-header background">
+                            <h3>Summary</h3>
+                        </div>
+                        <div class="card-body">
+                            <p id="summaryT">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, culpa.
+                                Consequatur,
+                                exercitationem ab eligendi necessitatibus voluptas dignissimos quo tenetur aliquid.</p>
+                        </div>
+                    </div>
+                    <!-- Work Experience card -->
+                    <div class="card mt-4">
+                        <div class="card-header background">
+                            <h3>Work Experience</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul id="workT">
+                                <li>Lorem ipsum dolor sit amet.</li>
+                                <li>Lorem ipsum dolor sit amet.</li>
+                                <li>Lorem ipsum dolor sit amet.</li>
+                                <li>Lorem ipsum dolor sit amet.</li>
+                                <li>Lorem ipsum dolor sit amet.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Education card -->
+                    <div class="card mt-4">
+                        <div class="card-header background">
+                            <h3>Education</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul id="eduT">
+                                <li>Lorem ipsum dolor sit amet.</li>
+                                <li>Lorem ipsum dolor sit amet.</li>
+                                <li>Lorem ipsum dolor sit amet.</li>
+                                <li>Lorem ipsum dolor sit amet.</li>
+                                <li>Lorem ipsum dolor sit amet.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Skills card -->
+                    <div class="card mt-4">
+                        <div class="card-header background">
+                            <h3>Skills</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul id="skT">
+                                <li>Lorem ipsum dolor sit amet.</li>
+                                <li>Lorem ipsum dolor sit amet.</li>
+                                <li>Lorem ipsum dolor sit amet.</li>
+                                <li>Lorem ipsum dolor sit amet.</li>
+                                <li>Lorem ipsum dolor sit amet.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Projects -->
+                    <div class="card mt-4">
+                        <div class="card-header background">
+                            <h3>Projects</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul id="projT">
+                                <li>Lorem ipsum dolor sit amet.</li>
+                                <li>Lorem ipsum dolor sit amet.</li>
+                                <li>Lorem ipsum dolor sit amet.</li>
+                                <li>Lorem ipsum dolor sit amet.</li>
+                                <li>Lorem ipsum dolor sit amet.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="container mt-3 text-center">
+                        <button onclick="printResume()" class="btn background">Print</button>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Footer -->
+    <footer class="text-center bg-dark text-white py-3 mt-5">
+      <p class="mb-0">&copy; 2025 Resume Generator. All rights reserved.</p>
+      
+       <p class="mb-0">Built by  Shubham Chatterjee</p>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
